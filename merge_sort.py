@@ -29,6 +29,8 @@ def merge_sort(my_list):
     if len(my_list)<=1:
         return my_list
     mid = len(my_list)//2
+    #list[:mid] -> mid index의 이전 index까지 슬라이스
+    #list[mid:] -> mid index부터! 끝까지 슬라이스
     return merge(merge_sort(my_list[:mid]),merge_sort(my_list[mid:]))
     
 
