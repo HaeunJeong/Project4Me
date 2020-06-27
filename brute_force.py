@@ -7,17 +7,13 @@ def distance(store1, store2):
 
 # 가장 가까운 두 매장을 찾아주는 함수
 def closest_pair(coordinates):
-    min = 100000
-    result = []
-    for t1 in coordinates[:len(coordinates)-1]:
+    result = [coordinates[0], coordinates[1]]
+    for t1 in range(len(coordinates)-1):
         #print(f't1 : {t1}')
-        for t2 in coordinates[coordinates.index(t1)+1:len(coordinates)]:
-            #print(f't2: {t2}')
-            if min > distance(coordinates[coordinates.index(t1)],coordinates[coordinates.index(t2)]):
-                min = distance(coordinates[coordinates.index(t1)],coordinates[coordinates.index(t2)])
-                result = []
-                result.append(t1)
-                result.append(t2)
+        for t2 in range(t1+1,len(coordinates)):
+            #t1, t2는 coordinates의 index
+            if distance(result[0], result[1]) > distance(coordinates[t1],coordinates[t2]):
+                result[0], result[1] = coordinates[t1], coordinates[t2]
     
     return result
     
